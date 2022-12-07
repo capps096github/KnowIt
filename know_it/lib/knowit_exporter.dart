@@ -10,6 +10,8 @@ export 'package:google_fonts/google_fonts.dart';
 
 export 'package:go_router/go_router.dart';
 
+export 'package:animations/animations.dart';
+
 // ? ------------------------ App Based Exports ------------------------ //
 export 'app/exporter.dart';
 

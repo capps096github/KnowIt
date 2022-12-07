@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+
+import 'dart:math' as math;
 
 // knowIt Color
 const knowItColor = Color(0xFF095AD2);
@@ -15,3 +16,7 @@ const knowItWhite = Color(0xFFFFFFFF);
 
 // know it transparent
 const knowItTransparent = Colors.transparent;
+
+// random color
+Color get knowItRandomColor =>
+    Color((math.Random().nextDouble() * 0xFFE3EEFE).toInt()).withOpacity(1.0);
