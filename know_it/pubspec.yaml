@@ -12,9 +12,39 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # icons
   cupertino_icons: ^1.0.2
+  ionicons: ^0.2.1
+
+  # state management
   flutter_riverpod: ^2.1.1
+
+  # urls
   url_launcher: ^6.1.6
+
+# fonts
+  google_fonts: ^3.0.1
+
+# navigation
+  go_router: ^5.1.1
+
+  # firebase
+
+  # images
+  flutter_svg: ^1.1.5
+  cached_network_image: ^3.2.2
+
+
+  # extras
+  flextras: ^0.0.2
+
+  # animations
+  animations: ^2.0.7
+
+  # sharing
+  share_plus: ^6.2.0 
+
+
 
 dev_dependencies:
   flutter_test:
@@ -24,3 +54,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/

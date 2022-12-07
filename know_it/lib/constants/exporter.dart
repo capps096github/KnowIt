@@ -4,3 +4,4 @@ export 'spacing.dart';
 export 'padding.dart';
 export 'platforms.dart';
 export 'durations.dart';
+export 'assets.dart';
