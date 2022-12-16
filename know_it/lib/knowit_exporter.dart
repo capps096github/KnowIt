@@ -12,6 +12,9 @@ export 'package:go_router/go_router.dart';
 
 export 'package:animations/animations.dart';
 
+export 'package:animated_text_kit/animated_text_kit.dart';
+
+
 // ? ------------------------ App Based Exports ------------------------ //
 export 'app/exporter.dart';
 

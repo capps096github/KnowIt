@@ -1,6 +1,6 @@
 /// for testing use [const String initialPath = <testPath>;]
-const String initialPath = homePath;
-// const String initialPath = settingsPath;
+// const String initialPath = homePath;
+const String initialPath = puzzlePath;
 
 // home path
 const String homePath = '/';

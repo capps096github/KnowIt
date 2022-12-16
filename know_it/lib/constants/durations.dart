@@ -9,6 +9,7 @@ const threeQuarterSeconds = Duration(milliseconds: 750);
 
 ///1 second
 const oneSecond = Duration(seconds: 1);
+const int kInitialSpeed = 1000;
 
 /// 2 Seconds
 const twoSeconds = Duration(seconds: 2);
