@@ -1,4 +1,3 @@
-
 import '../../../knowit_exporter.dart';
 import '../logic/exporter.dart';
 import '../providers/exporter.dart';
@@ -64,9 +63,7 @@ class PuzzleBoard extends ConsumerWidget {
                         child: images == null
                             ? Card(
                                 elevation: 4,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary
+                                color: knowItColor
                                     .withOpacity(isEnabled ? 1 : 0.5),
                                 shape: RoundedRectangleBorder(
                                   borderRadius:
@@ -84,12 +81,13 @@ class PuzzleBoard extends ConsumerWidget {
                                       style: TextStyle(
                                         fontSize: fontSize,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white
+                                        color: knowItWhite
                                             .withOpacity(isEnabled ? 1 : 0.5),
                                       ),
                                     ),
                                   ),
-                                ))
+                                ),
+                              )
                             : SizedBox(
                                 height: eachBoxSize,
                                 width: eachBoxSize,
@@ -110,7 +108,7 @@ class PuzzleBoard extends ConsumerWidget {
                       ),
                     ),
                   )
-                : const SizedBox(),
+                : const EmptySpace(),
         ],
       ),
     );

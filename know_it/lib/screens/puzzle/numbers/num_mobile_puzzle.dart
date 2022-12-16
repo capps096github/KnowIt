@@ -43,7 +43,8 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
     ref.listen(puzzleNotifierProvider(_solverClient),
         (previous, PuzzleState next) {
       if (next is PuzzleSolved) {
-        // TODO: Add celebration
+        // TODO: Add celebration by Changind the puzzle to a solved puzzle
+        // show a popup to congragulate the player and then on click we display more content below for them or they can go to the next puzzle
       }
       if (next is PuzzleInitializing) {
         setState(() {
@@ -73,7 +74,7 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    color: knowItWhite,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -110,8 +111,6 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                 PuzzleControlButton(
                   solverClient: _solverClient,
                   initialPuzzleData: _initialPuzzleData,
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 9.0),
-                  width: 130,
                 ),
                 const SizedBox(height: 100),
               ],

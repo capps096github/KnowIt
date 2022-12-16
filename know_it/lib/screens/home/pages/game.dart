@@ -57,10 +57,9 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO implement spinning wheel using package https://pub.dev/packages/flutter_spinning_wheel
     return Container(
-      color: Colors.white,
+      color: knowItWhite,
       child: Column(
         children: [
           SizedBox(

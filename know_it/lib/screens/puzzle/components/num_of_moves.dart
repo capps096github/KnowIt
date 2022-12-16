@@ -1,4 +1,3 @@
-
 import '../logic/exporter.dart';
 import '../providers/providers.dart';
 import '../../../knowit_exporter.dart';
@@ -67,7 +66,6 @@ class NumberOfMoves extends StatelessWidget {
   }
 }
 
-
 class MovesText extends StatelessWidget {
   final int moves;
   final int tiles;
@@ -87,7 +85,7 @@ class MovesText extends StatelessWidget {
         style: TextStyle(
           fontSize: fontSize,
           // fontWeight: FontWeight.w500,
-          color: Colors.white,
+          color: knowItWhite,
         ),
         children: [
           TextSpan(
@@ -109,4 +107,3 @@ class MovesText extends StatelessWidget {
     );
   }
 }
-

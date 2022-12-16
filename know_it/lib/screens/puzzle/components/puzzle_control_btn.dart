@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../../knowit_exporter.dart';
 import '../logic/exporter.dart';
 import '../providers/providers.dart';
@@ -7,16 +9,12 @@ class PuzzleControlButton extends StatelessWidget {
     Key? key,
     required PuzzleSolverClient solverClient,
     required PuzzleData initialPuzzleData,
-    this.width = 145,
-    this.padding = const EdgeInsets.only(top: 13.0, bottom: 12.0),
   })  : _solverClient = solverClient,
         _initialPuzzleData = initialPuzzleData,
         super(key: key);
 
   final PuzzleSolverClient _solverClient;
   final PuzzleData _initialPuzzleData;
-  final double width;
-  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,68 +25,61 @@ class PuzzleControlButton extends StatelessWidget {
         return state.when(
           () => PuzzleControlButtonBody(
             text: 'Start Game',
+            icon: CupertinoIcons.hand_draw,
             onTap: () => ref
                 .read(puzzleNotifierProvider(_solverClient).notifier)
                 .initializePuzzle(
                   initialPuzzleData: _initialPuzzleData,
                 ),
-            padding: padding,
-            width: width,
           ),
-          initializing: () => PuzzleControlButtonBody(
-            text: 'Get ready...',
+          initializing: () => const PuzzleControlButtonBody(
+            text: 'Shuffling...',
+            icon: CupertinoIcons.hourglass,
             onTap: null,
-            padding: padding,
-            width: width,
           ),
-          scrambling: (_) => PuzzleControlButtonBody(
-            text: 'Get ready...',
+          scrambling: (_) => const PuzzleControlButtonBody(
+            text: 'Shuffling...',
+            icon: CupertinoIcons.hourglass,
             onTap: null,
-            padding: padding,
-            width: width,
           ),
           current: (puzzleData) => PuzzleControlButtonBody(
             text: 'Restart',
+            icon: CupertinoIcons.arrow_2_circlepath_circle_fill,
             onTap: () {
               ref.read(timerNotifierProvider.notifier).stopTimer();
               ref
                   .read(puzzleNotifierProvider(_solverClient).notifier)
                   .restartPuzzle();
             },
-            padding: padding,
-            width: width,
           ),
-          computingSolution: (puzzleData) => PuzzleControlButtonBody(
+          computingSolution: (puzzleData) => const PuzzleControlButtonBody(
             text: 'Processing...',
+            icon: CupertinoIcons.hourglass,
             onTap: null,
-            padding: padding,
-            width: width,
           ),
-          autoSolving: (puzzleData) => PuzzleControlButtonBody(
+          autoSolving: (puzzleData) => const PuzzleControlButtonBody(
             text: 'Solving...',
+            icon: CupertinoIcons.helm,
             onTap: null,
-            padding: padding,
-            width: width,
           ),
           solved: (puzzleData) => PuzzleControlButtonBody(
-            text: 'Start Game',
+            text: 'Play Again', // 'Play Another or Continue',
+            icon: CupertinoIcons.hand_draw,
+
             onTap: () => ref
                 .read(puzzleNotifierProvider(_solverClient).notifier)
                 .initializePuzzle(
                   initialPuzzleData: puzzleData,
                 ),
-            padding: padding,
-            width: width,
           ),
           error: (_) => PuzzleControlButtonBody(
             text: 'Start Game',
+            icon: CupertinoIcons.hand_draw,
             onTap: () => ref
                 .read(puzzleNotifierProvider(_solverClient).notifier)
                 .initializePuzzle(
                   initialPuzzleData: _initialPuzzleData,
                 ),
-            padding: padding,
-            width: width,
           ),
         );
       },
@@ -101,56 +92,32 @@ class PuzzleControlButtonBody extends ConsumerWidget {
     Key? key,
     required this.text,
     required this.onTap,
-    required this.width,
-    required this.padding,
+    required this.icon,
   }) : super(key: key);
 
   final String text;
-  final Function()? onTap;
-  final double width;
-  final EdgeInsets padding;
+  final VoidCallback? onTap;
+
+  // icon
+  final IconData icon;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
-      width: width,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Theme.of(context).colorScheme.primary.withOpacity(0.5);
-              } else if (states.contains(MaterialState.disabled)) {
-                return Theme.of(context).colorScheme.primary.withOpacity(0.5);
-              }
-
-              return Theme.of(context)
-                  .colorScheme
-                  .primary; // Use the component's default.
-            },
-          ),
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: knowItColor,
+        foregroundColor: knowItWhite,
+        shape: const RoundedRectangleBorder(
+          borderRadius: borderRadius45,
         ),
-        // style: ElevatedButton.styleFrom(
-        //   onPrimary: Palette.blue,
-        //   onSurface: Palette.blue,
-        //   primary: Palette.blue,
-        //   shape: RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.circular(30),
-        //   ),
-        // ),
-        onPressed: onTap,
-        child: Padding(
-          padding: padding,
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white.withOpacity(onTap == null ? 0.6 : 1),
-            ),
-          ),
+      ),
+      onPressed: onTap,
+      icon: Icon(icon),
+      label: Padding(
+        padding: const EdgeInsets.only(top: 13.0, bottom: 12.0),
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 16),
         ),
       ),
     );

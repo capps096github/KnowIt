@@ -1,4 +1,3 @@
-
 import '../providers/exporter.dart';
 import '../../../knowit_exporter.dart';
 
@@ -24,7 +23,7 @@ class PuzzleTimer extends StatelessWidget {
               style: TextStyle(
                 fontSize: fontSize,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: knowItWhite,
               ),
             );
           },
@@ -32,7 +31,7 @@ class PuzzleTimer extends StatelessWidget {
         const SizedBox(width: 8),
         Icon(
           Icons.timer,
-          color: Colors.white,
+          color: knowItWhite,
           size: fontSize,
         )
       ],

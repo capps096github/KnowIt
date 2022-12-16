@@ -31,7 +31,7 @@ class CountDownOverlay extends ConsumerWidget {
                 child: DefaultTextStyle(
                   style: const TextStyle(
                     fontSize: 150.0,
-                    color: Colors.white,
+                    color: knowItWhite,
                     fontFamily: 'GoogleSans',
                   ),
                   child: AnimatedTextKit(
@@ -44,7 +44,7 @@ class CountDownOverlay extends ConsumerWidget {
                         '3',
                         transitionHeight: 100 * 2.5,
                         textStyle: const TextStyle(
-                          color: Colors.white,
+                          color: knowItWhite,
                         ),
                         duration: Duration(milliseconds: _kInitialSpeed),
                       ),
@@ -52,7 +52,7 @@ class CountDownOverlay extends ConsumerWidget {
                         '2',
                         transitionHeight: 100 * 2.5,
                         textStyle: const TextStyle(
-                          color: Colors.white,
+                          color: knowItWhite,
                         ),
                         duration: Duration(milliseconds: _kInitialSpeed),
                       ),
@@ -60,7 +60,7 @@ class CountDownOverlay extends ConsumerWidget {
                         '1',
                         transitionHeight: 100 * 2.5,
                         textStyle: const TextStyle(
-                          color: Colors.white,
+                          color: knowItWhite,
                         ),
                         duration: Duration(milliseconds: _kInitialSpeed),
                       ),
@@ -68,7 +68,7 @@ class CountDownOverlay extends ConsumerWidget {
                         'GO!',
                         textStyle: const TextStyle(
                           fontSize: 120.0,
-                          color: Colors.white,
+                          color: knowItWhite,
                         ),
                         transitionHeight: 120 * 2.5,
                         duration: Duration(milliseconds: _kInitialSpeed),
