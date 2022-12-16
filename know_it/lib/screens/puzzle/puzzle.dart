@@ -1,16 +1,49 @@
 import '../../knowit_exporter.dart';
+import 'components/user_points.dart';
 import 'logic/exporter.dart';
 import 'numbers/number_puzzle.dart';
 import 'providers/exporter.dart';
 
-class KnowItPuzzle extends ConsumerStatefulWidget {
+class KnowItPuzzle extends StatelessWidget {
   const KnowItPuzzle({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _KnowItPuzzleState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: knowItColor,
+        elevation: 0,
+        title: const Text(
+          "Puzzle #6",
+          style: TextStyle(
+            color: knowItWhite,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        leading: BackButton(
+          onPressed: () {},
+          color: knowItWhite,
+        ),
+        actions: const [
+          // icon showing crown and score
+          CurrentUserPoints(),
+        ],
+      ),
+      body: const KnowItPuzzleBody(),
+    );
+  }
 }
 
-class _KnowItPuzzleState extends ConsumerState<KnowItPuzzle> {
+class KnowItPuzzleBody extends ConsumerStatefulWidget {
+  const KnowItPuzzleBody({super.key});
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _KnowItPuzzleBodyState();
+}
+
+class _KnowItPuzzleBodyState extends ConsumerState<KnowItPuzzleBody> {
   late final PuzzleSolverClient _solverClient;
   final int _puzzleSize = 3;
   late final PuzzleData _initialPuzzleData;

@@ -31,7 +31,7 @@ class AppTheme {
       ),
       //* -- tooltip
       tooltipTheme: TooltipThemeData(
-        textStyle: const TextStyle(color: knowItColor),
+        textStyle: const TextStyle(color: knowItWhite),
         decoration: BoxDecoration(
           color: knowItTeal,
           borderRadius: BorderRadius.circular(6),
