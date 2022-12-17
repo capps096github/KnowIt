@@ -9,6 +9,4 @@ void main() {
       child: KnowIt(),
     ),
   );
-
-  //
 }

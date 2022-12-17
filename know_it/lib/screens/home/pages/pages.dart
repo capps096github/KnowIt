@@ -44,6 +44,6 @@ final List<HomePage> homePages = [
     selectedIcon: Icons.mail,
     title: "Profile",
     tooltip: "Go to Profile",
-    screen: const KnowItPlaceholder(title: "Profile"),
+    screen: const KnowItProfile(),
   ),
 ];

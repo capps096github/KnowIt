@@ -68,7 +68,7 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(),
-                const SizedBox(height: 30),
+                const VerticalSpace(of: 30),
                 const Text(
                   'Puzzle Challenge',
                   style: TextStyle(
@@ -77,13 +77,13 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                     color: knowItWhite,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const VerticalSpace(of: 8),
                 // number of moves
                 NumberOfMoves(
                   solverClient: _solverClient,
                   fontSize: 22,
                 ),
-                const SizedBox(height: 8),
+                const VerticalSpace(of: 8),
                 const PuzzleTimer(fontSize: 24),
                 // tab bar for switching between puzzle types
                 // PreferredSize(
@@ -97,7 +97,7 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                 //   ),
                 //   preferredSize: const Size(double.maxFinite, 100),
                 // ),
-                const SizedBox(height: 36),
+                const VerticalSpace(of: 36),
                 PuzzleWidget(
                   solverClient: _solverClient,
                   boardSize: boardSize,
@@ -107,12 +107,12 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                   kInitialSpeed: kInitialSpeed,
                   borderRadius: 16,
                 ),
-                const SizedBox(height: 24),
+                const VerticalSpace(of: 24),
                 PuzzleControlButton(
                   solverClient: _solverClient,
                   initialPuzzleData: _initialPuzzleData,
                 ),
-                const SizedBox(height: 100),
+                const VerticalSpace(of: 100),
               ],
             ),
           ),

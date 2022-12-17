@@ -17,7 +17,7 @@ class SliverVerticalSpace extends StatelessWidget {
   final double of;
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(child: SizedBox(height: of));
+    return SliverToBoxAdapter(child: VerticalSpace(of: of));
   }
 }
 

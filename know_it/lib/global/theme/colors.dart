@@ -17,6 +17,12 @@ const knowItWhite = Color(0xFFFFFFFF);
 // know it transparent
 const knowItTransparent = Colors.transparent;
 
+// black
+const knowItBlack = Color(0xFF000000);
+
+// orange
+const Color knowItOrange = Color(0xFFFBAA00);
+
 // random color
 Color get knowItRandomColor =>
     Color((math.Random().nextDouble() * 0xFFE3EEFE).toInt()).withOpacity(1.0);

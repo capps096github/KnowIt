@@ -22,6 +22,12 @@ final routerProvider = Provider<GoRouter>(
           path: puzzlePath,
           builder: (context, state) => const KnowItPuzzle(),
         ),
+
+        // * profile page
+        GoRoute(
+          path: profilePath,
+          builder: (context, state) => const KnowItProfile(),
+        ),
       ],
 
       // redirect: (_, state) {
