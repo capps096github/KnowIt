@@ -51,8 +51,7 @@ dependencies:
   wave: ^0.2.2
   intl: ^0.18.0
 
-
-
+  flutter_fortune_wheel: ^1.2.0
 
 dev_dependencies:
   flutter_test:
