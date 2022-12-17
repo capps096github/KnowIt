@@ -1,3 +1,6 @@
+import 'package:wave/config.dart';
+import 'package:wave/wave.dart';
+
 import '../../../knowit_exporter.dart';
 import '../logic/exporter.dart';
 import '../providers/exporter.dart';
@@ -35,80 +38,128 @@ class PuzzleBoard extends ConsumerWidget {
       width: boardSize,
       child: Stack(
         children: [
-          for (int i = 0; i < puzzleData.offsetMap.length; i++)
-            puzzleData.offsetMap.entries.toList()[i].key != 0
-                ? AnimatedAlign(
-                    alignment: puzzleData.offsetMap.entries.toList()[i].value,
-                    duration: Duration(
-                      milliseconds: animationSpeed,
-                    ),
-                    curve: Curves.easeOut,
-                    child: MouseRegion(
-                      cursor: !isEnabled
-                          ? SystemMouseCursors.forbidden
-                          : SystemMouseCursors.click,
-                      child: GestureDetector(
-                        onTap: !isEnabled
-                            ? null
-                            : () => ref
-                                .read(puzzleNotifierProvider(solverClient)
-                                    .notifier)
-                                .onClick(
-                                  index: puzzleData.board1D.indexOf(puzzleData
-                                      .offsetMap.entries
-                                      .toList()[i]
-                                      .key),
-                                  prev: puzzleData,
-                                ),
-                        child: images == null
-                            ? Card(
-                                elevation: 4,
-                                color: knowItColor
-                                    .withOpacity(isEnabled ? 1 : 0.5),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(borderRadius),
-                                ),
-                                child: SizedBox(
-                                  height: eachBoxSize,
-                                  width: eachBoxSize,
-                                  child: Center(
-                                    child: Text(
-                                      puzzleData.offsetMap.entries
-                                          .toList()[i]
-                                          .key
-                                          .toString(),
-                                      style: TextStyle(
-                                        fontSize: fontSize,
-                                        fontWeight: FontWeight.bold,
-                                        color: knowItWhite
-                                            .withOpacity(isEnabled ? 1 : 0.5),
+          Container(
+            decoration: BoxDecoration(
+              color: knowItWhite.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
+            child: Stack(
+              children: [
+                for (int i = 0; i < puzzleData.offsetMap.length; i++)
+                  puzzleData.offsetMap.entries.toList()[i].key != 0
+                      ? AnimatedAlign(
+                          alignment:
+                              puzzleData.offsetMap.entries.toList()[i].value,
+                          duration: Duration(
+                            milliseconds: animationSpeed,
+                          ),
+                          curve: Curves.easeOut,
+                          child: MouseRegion(
+                            cursor: !isEnabled
+                                ? SystemMouseCursors.forbidden
+                                : SystemMouseCursors.click,
+                            child: GestureDetector(
+                              onTap: !isEnabled
+                                  ? null
+                                  : () => ref
+                                      .read(puzzleNotifierProvider(solverClient)
+                                          .notifier)
+                                      .onClick(
+                                        index: puzzleData.board1D.indexOf(
+                                            puzzleData.offsetMap.entries
+                                                .toList()[i]
+                                                .key),
+                                        prev: puzzleData,
+                                      ),
+                              child: images == null
+                                  ? Card(
+                                      elevation: isEnabled ? 4 : 0,
+                                      color: knowItColor
+                                          .withOpacity(isEnabled ? 1 : 0.5),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(borderRadius),
+                                      ),
+                                      child: SizedBox(
+                                        height: eachBoxSize,
+                                        width: eachBoxSize,
+                                        child: Center(
+                                          child: Text(
+                                            puzzleData.offsetMap.entries
+                                                .toList()[i]
+                                                .key
+                                                .toString(),
+                                            style: TextStyle(
+                                              fontSize: fontSize,
+                                              fontWeight: FontWeight.bold,
+                                              color: knowItWhite.withOpacity(
+                                                  isEnabled ? 1 : 0.5),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : SizedBox(
+                                      height: eachBoxSize,
+                                      width: eachBoxSize,
+                                      child: Opacity(
+                                        opacity: isEnabled ? 1 : 0.5,
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(
+                                              borderRadius),
+                                          child: images![int.parse(puzzleData
+                                                  .offsetMap.entries
+                                                  .toList()[i]
+                                                  .key
+                                                  .toString()) -
+                                              1],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              )
-                            : SizedBox(
-                                height: eachBoxSize,
-                                width: eachBoxSize,
-                                child: Opacity(
-                                  opacity: isEnabled ? 1 : 0.5,
-                                  child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(borderRadius),
-                                    child: images![int.parse(puzzleData
-                                            .offsetMap.entries
-                                            .toList()[i]
-                                            .key
-                                            .toString()) -
-                                        1],
-                                  ),
-                                ),
-                              ),
-                      ),
-                    ),
-                  )
-                : const EmptySpace(),
+                            ),
+                          ),
+                        )
+                      : const EmptySpace(),
+              ],
+            ),
+          ),
+          if (!isEnabled) ...[
+            Container(
+              decoration: BoxDecoration(
+                color: knowItColor.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(borderRadius),
+              ),
+              child: const Center(
+                child: Text(
+                  'Tap "Start Game" to Play',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: knowItWhite,
+                  ),
+                ),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(borderRadius),
+              child: WaveWidget(
+                config: CustomConfig(
+                  colors: [
+                    knowItWhite.withOpacity(0.8),
+                    knowItWhite.withOpacity(0.6),
+                    knowItWhite.withOpacity(.4),
+                    knowItWhite.withOpacity(.2),
+                  ],
+                  durations: [5000, 4000, 4500, 5500],
+                  // distance from top of screen to bottom of screen
+                  heightPercentages: [0.7, 0.7, 0.7, 0.7],
+                ),
+                backgroundColor: knowItTransparent,
+                size: Size(boardSize, boardSize),
+                waveAmplitude: 0,
+              ),
+            ),
+          ],
         ],
       ),
     );
