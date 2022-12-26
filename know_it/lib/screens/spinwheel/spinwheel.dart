@@ -1,26 +1,25 @@
 import '../../knowit_exporter.dart';
-import 'test_chat.dart';
-import 'test_chat_2.dart';
+import 'components/game_selected_tile.dart';
+import 'components/game_wheel.dart';
 
 class KnowItSpinWheel extends ConsumerWidget {
   const KnowItSpinWheel({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // return Scaffold(
-    //   body: Column(
-    //     children: const [
-    //       // Expanded(
-    //       //   child: Container(
-    //       //     color: knowItColor,
-    //       //   ),
-    //       // ),
+    return Scaffold(
+      body: Padding(
+        padding: padding16,
+        child: Column(
+          children: const [
+            // text
+            Expanded(child: Center(child: GameWheel())),
 
-    //       // text
-    //       Text("data"),
-    //     ],
-    //   ),
-    // );
-    return const ChatScreeny();
+            // game selected
+            GameSelectedTile(),
+          ],
+        ),
+      ),
+    );
   }
 }

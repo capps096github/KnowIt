@@ -26,3 +26,5 @@ const Color knowItOrange = Color(0xFFFBAA00);
 // random color
 Color get knowItRandomColor =>
     Color((math.Random().nextDouble() * 0xFFE3EEFE).toInt()).withOpacity(1.0);
+
+
