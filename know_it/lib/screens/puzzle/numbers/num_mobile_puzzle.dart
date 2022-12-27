@@ -65,17 +65,32 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(),
-              const VerticalSpace(of: 30),
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: knowItTransparent,
+                    border: Border.all(
+                      color: knowItWhite,
+                      width: 2,
+                    ),
+                  ),
+                  child: BackButton(
+                    onPressed: () {},
+                    color: knowItWhite,
+                  ),
+                ),
+              ),
+              const VerticalSpace(of: spacing8),
               const Text(
                 'Puzzle Challenge',
                 style: TextStyle(
                   fontSize: 32,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w900,
                   color: knowItWhite,
                 ),
               ),
-              const VerticalSpace(of: 8),
+              const VerticalSpace(of: spacing16),
               // number of moves
               NumberOfMoves(
                 solverClient: _solverClient,

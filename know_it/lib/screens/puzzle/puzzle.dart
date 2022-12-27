@@ -1,6 +1,5 @@
 import '../../knowit_exporter.dart';
 import '../spinwheel/providers.dart';
-import 'components/user_points.dart';
 import 'logic/exporter.dart';
 import 'numbers/number_puzzle.dart';
 import 'providers/exporter.dart';
@@ -15,26 +14,26 @@ class KnowItPuzzle extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: puzzleTileColor,
-      appBar: AppBar(
-        backgroundColor: puzzleTileColor,
-        elevation: 0,
-        title: const Text(
-          "Puzzle #6",
-          style: TextStyle(
-            color: knowItWhite,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        leading: BackButton(
-          onPressed: () {},
-          color: knowItWhite,
-        ),
-        actions: const [
-          // icon showing crown and score
-          CurrentUserPoints(),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: puzzleTileColor,
+      //   elevation: 0,
+      //   title: const Text(
+      //     "Puzzle #6",
+      //     style: TextStyle(
+      //       color: knowItWhite,
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      //   centerTitle: true,
+      //   leading: BackButton(
+      //     onPressed: () {},
+      //     color: knowItWhite,
+      //   ),
+      //   actions: const [
+      //     // icon showing crown and score
+      //     CurrentUserPoints(),
+      //   ],
+      // ),
       body: const KnowItPuzzleBody(),
     );
   }

@@ -80,6 +80,7 @@ class MovesText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO, add icon here
     return RichText(
       text: TextSpan(
         style: TextStyle(

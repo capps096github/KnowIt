@@ -23,6 +23,7 @@ class CountDownOverlay extends ConsumerWidget {
         height: double.maxFinite,
         width: double.maxFinite,
         color: Colors.black54,
+        //TODO wrap this in a column and add know it logo somewhere
         child: Center(
           child: Wrap(
             children: [

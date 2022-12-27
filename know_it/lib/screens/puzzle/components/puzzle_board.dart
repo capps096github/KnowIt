@@ -131,7 +131,7 @@ class PuzzleBoard extends ConsumerWidget {
           if (!isEnabled) ...[
             Container(
               decoration: BoxDecoration(
-                color: puzzleTileColor.withOpacity(0.5),
+                color: knowItBlack.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
               child: const Center(
