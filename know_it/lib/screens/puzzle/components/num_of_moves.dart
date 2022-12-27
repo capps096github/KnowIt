@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../logic/exporter.dart';
 import '../providers/providers.dart';
 import '../../../knowit_exporter.dart';
@@ -81,28 +83,55 @@ class MovesText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO, add icon here
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: fontSize,
-          // fontWeight: FontWeight.w500,
-          color: knowItWhite,
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          TextSpan(
-            text: moves.toString(),
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-            ),
+          // moves made
+          Row(
+            children: [
+              // icon
+              const Icon(
+                CupertinoIcons.rectangle_3_offgrid_fill,
+                color: knowItWhite,
+              ),
+              const HorizontalSpace(of: spacing8),
+
+              Text(
+                '$moves Moves',
+                style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w500,
+                  color: knowItWhite,
+                ),
+              ),
+            ],
           ),
-          const TextSpan(text: ' Moves | '),
-          TextSpan(
-            text: tiles.toString(),
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-            ),
+
+          const VerticalSpace(of: spacing16),
+
+          // tiles left
+          Row(
+            children: [
+              // icon
+              const Icon(
+                CupertinoIcons.rectangle_stack_fill,
+                color: knowItWhite,
+              ),
+              const HorizontalSpace(of: spacing8),
+
+              Text(
+                '$tiles Tiles Left',
+                style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w500,
+                  color: knowItWhite,
+                ),
+              ),
+            ],
           ),
-          const TextSpan(text: ' Tiles'),
         ],
       ),
     );
