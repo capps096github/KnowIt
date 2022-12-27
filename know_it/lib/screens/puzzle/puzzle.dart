@@ -1,17 +1,22 @@
 import '../../knowit_exporter.dart';
+import '../spinwheel/providers.dart';
 import 'components/user_points.dart';
 import 'logic/exporter.dart';
 import 'numbers/number_puzzle.dart';
 import 'providers/exporter.dart';
 
-class KnowItPuzzle extends StatelessWidget {
+class KnowItPuzzle extends ConsumerWidget {
   const KnowItPuzzle({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // puzzle tile color
+    final puzzleTileColor = ref.watch(selectedSpinColorProvider);
+
     return Scaffold(
+      backgroundColor: puzzleTileColor,
       appBar: AppBar(
-        backgroundColor: knowItColor,
+        backgroundColor: puzzleTileColor,
         elevation: 0,
         title: const Text(
           "Puzzle #6",

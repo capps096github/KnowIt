@@ -61,60 +61,57 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
 
     return Stack(
       children: [
-        Scaffold(
-          backgroundColor: Theme.of(context).backgroundColor,
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(),
-                const VerticalSpace(of: 30),
-                const Text(
-                  'Puzzle Challenge',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w500,
-                    color: knowItWhite,
-                  ),
+        SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(),
+              const VerticalSpace(of: 30),
+              const Text(
+                'Puzzle Challenge',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w500,
+                  color: knowItWhite,
                 ),
-                const VerticalSpace(of: 8),
-                // number of moves
-                NumberOfMoves(
-                  solverClient: _solverClient,
-                  fontSize: 22,
-                ),
-                const VerticalSpace(of: 8),
-                const PuzzleTimer(fontSize: 24),
-                // tab bar for switching between puzzle types
-                // PreferredSize(
-                //   child: TopBar(
-                //     puzzleSize: _puzzleSize,
-                //     puzzleType: _puzzleType,
-                //     color: Theme.of(context).colorScheme.background,
-                //     tileGap: 4,
-                //     padding: const EdgeInsets.only(top: 10, bottom: 8),
-                //     isCentered: true,
-                //   ),
-                //   preferredSize: const Size(double.maxFinite, 100),
-                // ),
-                const VerticalSpace(of: 36),
-                PuzzleWidget(
-                  solverClient: _solverClient,
-                  boardSize: boardSize,
-                  eachBoxSize: eachBoxSize,
-                  initialPuzzleData: _initialPuzzleData,
-                  fontSize: fontSize,
-                  kInitialSpeed: kInitialSpeed,
-                  borderRadius: 16,
-                ),
-                const VerticalSpace(of: 24),
-                PuzzleControlButton(
-                  solverClient: _solverClient,
-                  initialPuzzleData: _initialPuzzleData,
-                ),
-                const VerticalSpace(of: 100),
-              ],
-            ),
+              ),
+              const VerticalSpace(of: 8),
+              // number of moves
+              NumberOfMoves(
+                solverClient: _solverClient,
+                fontSize: 22,
+              ),
+              const VerticalSpace(of: 8),
+              const PuzzleTimer(fontSize: 24),
+              // tab bar for switching between puzzle types
+              // PreferredSize(
+              //   child: TopBar(
+              //     puzzleSize: _puzzleSize,
+              //     puzzleType: _puzzleType,
+              //     color: Theme.of(context).colorScheme.background,
+              //     tileGap: 4,
+              //     padding: const EdgeInsets.only(top: 10, bottom: 8),
+              //     isCentered: true,
+              //   ),
+              //   preferredSize: const Size(double.maxFinite, 100),
+              // ),
+              const VerticalSpace(of: 36),
+              PuzzleWidget(
+                solverClient: _solverClient,
+                boardSize: boardSize,
+                eachBoxSize: eachBoxSize,
+                initialPuzzleData: _initialPuzzleData,
+                fontSize: fontSize,
+                kInitialSpeed: kInitialSpeed,
+                borderRadius: 16,
+              ),
+              const VerticalSpace(of: 24),
+              PuzzleControlButton(
+                solverClient: _solverClient,
+                initialPuzzleData: _initialPuzzleData,
+              ),
+              const VerticalSpace(of: 100),
+            ],
           ),
         ),
         CountDownOverlay(

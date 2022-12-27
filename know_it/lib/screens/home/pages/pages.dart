@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../knowit_exporter.dart';
-import 'game.dart';
 
 class HomePage {
   // icon data
@@ -37,7 +36,7 @@ final List<HomePage> homePages = [
     selectedIcon: CupertinoIcons.game_controller_solid,
     title: "Game",
     tooltip: "Go to Game",
-    screen: const GameScreen(),
+    screen: const KnowItSpinWheel(),
   ),
   HomePage(
     unselectedIcon: Icons.mail_outlined,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../knowit_exporter.dart';
+import '../../spinwheel/providers.dart';
 import '../logic/exporter.dart';
 import '../providers/providers.dart';
 
@@ -64,7 +65,7 @@ class PuzzleControlButton extends StatelessWidget {
           ),
           solved: (puzzleData) => PuzzleControlButtonBody(
             text: 'Play Again', // 'Play Another or Continue',
-            icon: CupertinoIcons.hand_draw,
+            icon: CupertinoIcons.goforward,
 
             onTap: () => ref
                 .read(puzzleNotifierProvider(_solverClient).notifier)
@@ -103,10 +104,13 @@ class PuzzleControlButtonBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // puzzle tile color
+    final puzzleTileColor = ref.watch(selectedSpinColorProvider);
+
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-        backgroundColor: knowItColor,
-        foregroundColor: knowItWhite,
+        backgroundColor: knowItWhite,
+        foregroundColor: puzzleTileColor,
         shape: const RoundedRectangleBorder(
           borderRadius: borderRadius45,
         ),

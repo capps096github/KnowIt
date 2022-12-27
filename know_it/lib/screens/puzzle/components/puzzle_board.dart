@@ -2,6 +2,7 @@ import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
 import '../../../knowit_exporter.dart';
+import '../../spinwheel/providers.dart';
 import '../logic/exporter.dart';
 import '../providers/exporter.dart';
 
@@ -33,6 +34,10 @@ class PuzzleBoard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // puzzle tile color
+    final puzzleTileColor = ref.watch(selectedSpinColorProvider);
+
+    //
     return SizedBox(
       height: boardSize,
       width: boardSize,
@@ -74,7 +79,7 @@ class PuzzleBoard extends ConsumerWidget {
                               child: images == null
                                   ? Card(
                                       elevation: isEnabled ? 4 : 0,
-                                      color: knowItColor
+                                      color: puzzleTileColor
                                           .withOpacity(isEnabled ? 1 : 0.5),
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -126,7 +131,7 @@ class PuzzleBoard extends ConsumerWidget {
           if (!isEnabled) ...[
             Container(
               decoration: BoxDecoration(
-                color: knowItColor.withOpacity(0.5),
+                color: puzzleTileColor.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
               child: const Center(

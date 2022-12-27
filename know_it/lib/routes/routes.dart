@@ -20,8 +20,7 @@ final routerProvider = Provider<GoRouter>(
         // * puzzle page
         GoRoute(
           path: puzzlePath,
-          // builder: (context, state) => const KnowItPuzzle(),
-          builder: (context, state) => const KnowItSpinWheel(),
+          builder: (context, state) => const KnowItPuzzle(),
         ),
 
         // * profile page

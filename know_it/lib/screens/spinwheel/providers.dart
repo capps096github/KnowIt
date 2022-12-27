@@ -16,6 +16,14 @@ final selectedSpinColorProvider = StateProvider<Color>(
   },
 );
 
+// show game tile
+final showGameTileProvider = StateProvider<bool>(
+  (ref) {
+    return true;
+  },
+);
+
+
 // wheel colors
 final wheelColorsProvider = Provider<List<Color>>(
   (ref) {
@@ -28,7 +36,6 @@ final wheelColorsProvider = Provider<List<Color>>(
       Color(0xFFF8074B),
       Color(0xFFFF6F00),
       Color(0xFF90A4AE),
-      Color(0XFFFFD780),
       Color(0xFFE65100),
       Color(0xFF800000),
     ];
