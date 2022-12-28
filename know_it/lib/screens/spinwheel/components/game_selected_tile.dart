@@ -26,7 +26,8 @@ class GameSelectedTile extends ConsumerWidget {
                   // game selected container
                   InkWell(
                     onTap: () {
-                      context.go(puzzlePath);
+                      // go to the puzzle screen
+                      context.push(puzzlePath);
                     },
                     child: Container(
                       width: double.infinity,
@@ -45,7 +46,7 @@ class GameSelectedTile extends ConsumerWidget {
                           // text
                           Flexible(
                             child: Text(
-                              "How to use a Condom correctly",
+                              "A Puzzle Challenge for You!",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: selectedColor,

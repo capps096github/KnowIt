@@ -1,4 +1,4 @@
 // tapped selectedNavBarIndexProvider provider
 import '../../knowit_exporter.dart';
 
-final selectedNavBarIndexProvider = StateProvider<int>((_) => 0);
+final selectedNavBarIndexProvider = StateProvider<int>((_) => 1);

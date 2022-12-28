@@ -1,4 +1,3 @@
-
 // 40 spacing
 const spacing40 = 40.0;
 
@@ -19,4 +18,3 @@ const spacing4 = 4.0;
 
 // 2 spacing
 const spacing2 = 2.0;
-

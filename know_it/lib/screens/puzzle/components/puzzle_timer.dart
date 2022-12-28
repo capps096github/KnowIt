@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../providers/exporter.dart';
 import '../../../knowit_exporter.dart';
 
@@ -14,6 +16,12 @@ class PuzzleTimer extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Icon(
+          CupertinoIcons.time_solid,
+          color: knowItWhite,
+          size: fontSize,
+        ),
+        const HorizontalSpace(of: 8),
         Consumer(
           builder: (context, ref, child) {
             final state = ref.watch(timerNotifierProvider);
@@ -28,12 +36,6 @@ class PuzzleTimer extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(width: 8),
-        Icon(
-          Icons.timer,
-          color: knowItWhite,
-          size: fontSize,
-        )
       ],
     );
   }

@@ -1,5 +1,7 @@
 // Project imports:
 
+import 'package:flextras/flextras.dart';
+
 import '../../../knowit_exporter.dart';
 import '../reward.dart';
 
@@ -34,7 +36,7 @@ class RewardsCard extends StatelessWidget {
         ),
       ),
       padding: padding8,
-      child: Column(
+      child: ExpandedScrollingColumn(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

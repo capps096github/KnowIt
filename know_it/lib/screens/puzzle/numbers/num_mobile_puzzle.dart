@@ -67,6 +67,7 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
             children: [
               Center(
                 child: Container(
+                  margin: padding8,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: knowItTransparent,
@@ -76,8 +77,8 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
                     ),
                   ),
                   child: BackButton(
-                    onPressed: () {},
                     color: knowItWhite,
+                    onPressed: () => context.pop(),
                   ),
                 ),
               ),

@@ -21,6 +21,8 @@ class KnowItSpinWheel extends ConsumerWidget {
 
             // game selected
             GameSelectedTile(),
+
+            VerticalSpace(of: spacing16),
           ],
         ),
       ),

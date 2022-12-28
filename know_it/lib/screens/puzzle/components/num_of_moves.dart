@@ -85,19 +85,20 @@ class MovesText extends StatelessWidget {
     // TODO, add icon here
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           // moves made
-          Row(
+          Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               // icon
               const Icon(
                 CupertinoIcons.rectangle_3_offgrid_fill,
                 color: knowItWhite,
               ),
-              const HorizontalSpace(of: spacing8),
+              const VerticalSpace(of: spacing8),
 
               Text(
                 '$moves Moves',
@@ -110,17 +111,24 @@ class MovesText extends StatelessWidget {
             ],
           ),
 
-          const VerticalSpace(of: spacing16),
+          // const HorizontalSpace(of: spacing32),
+          const ThickVerticalDivider(
+            dividerColor: knowItWhite,
+            thickness: 2,
+            dividerHeight: 50,
+            margin: margin16,
+          ),
 
           // tiles left
-          Row(
+          Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               // icon
               const Icon(
                 CupertinoIcons.rectangle_stack_fill,
                 color: knowItWhite,
               ),
-              const HorizontalSpace(of: spacing8),
+              const VerticalSpace(of: spacing8),
 
               Text(
                 '$tiles Tiles Left',
