@@ -1,5 +1,6 @@
 import '../../../knowit_exporter.dart';
 import '../components/exporter.dart';
+import '../components/win_overlay.dart';
 import '../logic/exporter.dart';
 import '../providers/exporter.dart';
 
@@ -43,8 +44,11 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
     ref.listen(puzzleNotifierProvider(_solverClient),
         (previous, PuzzleState next) {
       if (next is PuzzleSolved) {
-        // TODO: Add celebration by Changind the puzzle to a solved puzzle
-        // show a popup to congragulate the player and then on click we display more content below for them or they can go to the next puzzle
+        // complete the puzzle
+        ref
+                      .read(puzzleCompleteProvider.notifier)
+                      .update((state) => true);
+       
       }
       if (next is PuzzleInitializing) {
         setState(() {
@@ -130,6 +134,7 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
             ],
           ),
         ),
+        //
         CountDownOverlay(
           isStartPressed: _isStartPressed,
           onFinish: () {
@@ -140,6 +145,9 @@ class _SoloScreenLargeState extends ConsumerState<NumPuzzleMobile> {
           },
           initialSpeed: kInitialSpeed,
         ),
+
+        // win overlay
+        WinOverlay(),
       ],
     );
   }

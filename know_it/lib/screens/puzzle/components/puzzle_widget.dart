@@ -56,6 +56,7 @@ class PuzzleWidget extends StatelessWidget {
             isEnabled: false,
             animationSpeed: _kInitialSpeed,
             borderRadius: borderRadius,
+            puzzleTip: 'Initializing...',
           ),
           scrambling: (puzzleData) => PuzzleBoard(
             solverClient: _solverClient,
@@ -67,6 +68,7 @@ class PuzzleWidget extends StatelessWidget {
             isEnabled: false,
             animationSpeed: _kInitialSpeed,
             borderRadius: borderRadius,
+            puzzleTip: 'Scrambling...',
           ),
           current: (puzzleData) => PuzzleBoard(
             solverClient: _solverClient,
@@ -85,6 +87,7 @@ class PuzzleWidget extends StatelessWidget {
             fontSize: fontSize,
             images: images,
             borderRadius: borderRadius,
+            puzzleTip: 'Computing solution...',
           ),
           autoSolving: (puzzleData) => PuzzleBoard(
             solverClient: _solverClient,
@@ -94,6 +97,7 @@ class PuzzleWidget extends StatelessWidget {
             fontSize: fontSize,
             images: images,
             borderRadius: borderRadius,
+            puzzleTip: 'Auto solving...',
           ),
           solved: (puzzleData) => PuzzleBoard(
             solverClient: _solverClient,
@@ -104,6 +108,7 @@ class PuzzleWidget extends StatelessWidget {
             images: images,
             isEnabled: false,
             borderRadius: borderRadius,
+            puzzleTip: 'Puzzle Solved!',
           ),
           error: (_) => PuzzleBoard(
             solverClient: _solverClient,
@@ -113,6 +118,7 @@ class PuzzleWidget extends StatelessWidget {
             fontSize: fontSize,
             images: images,
             borderRadius: borderRadius,
+            puzzleTip: 'Error!',
           ),
         );
       },

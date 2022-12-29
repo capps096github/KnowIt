@@ -14,6 +14,7 @@ class PuzzleBoard extends ConsumerWidget {
     required this.eachBoxSize,
     required this.puzzleData,
     required this.fontSize,
+    this.puzzleTip = 'Tap "Start Game" to Play',
     this.images,
     this.animationSpeed = 300,
     this.isEnabled = true,
@@ -29,6 +30,9 @@ class PuzzleBoard extends ConsumerWidget {
   final int animationSpeed;
   final List<Image>? images;
   final double borderRadius;
+
+  // puzzle tip
+  final String puzzleTip;
 
   // final int _animationSpeedInMilliseconds = 300;
 
@@ -134,10 +138,10 @@ class PuzzleBoard extends ConsumerWidget {
                 color: knowItBlack.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  'Tap "Start Game" to Play',
-                  style: TextStyle(
+                  puzzleTip,
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: knowItWhite,

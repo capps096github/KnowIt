@@ -11,8 +11,8 @@ class GameTip extends ConsumerWidget {
     // selected color
     final selectedColor = ref.watch(selectedSpinColorProvider);
 
-    // // show game tile
-    // final showGameTile = ref.watch(showGameTileProvider);
+    // show game tile
+    final showGameTile = ref.watch(showGameTileProvider);
 
     return AnimatedSwitcher(
       duration: halfSeconds,
@@ -24,19 +24,21 @@ class GameTip extends ConsumerWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             // game icon
             Icon(
-              CupertinoIcons.hand_draw_fill,
+              showGameTile
+                  ? CupertinoIcons.hand_draw_fill
+                  : CupertinoIcons.asterisk_circle_fill,
               color: knowItWhite,
             ),
 
-            HorizontalSpace(of: spacing8),
+            const HorizontalSpace(of: spacing8),
 
             Flexible(
               child: Text(
-                "Tap the Wheel or Logo to spin",
-                style: TextStyle(
+                showGameTile ? "Tap the Wheel or Logo to spin" : "Spinning ...",
+                style: const TextStyle(
                   fontSize: 16,
                   color: knowItWhite,
                   fontWeight: FontWeight.bold,

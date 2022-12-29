@@ -16,3 +16,6 @@ final puzzleTypeNotifierProvider =
     StateNotifierProvider<PuzzleTypeNotifier, PuzzleType>(
   (ref) => PuzzleTypeNotifier(),
 );
+
+// is puzzle complete
+final puzzleCompleteProvider = StateProvider<bool>((ref) => false);

@@ -52,6 +52,7 @@ dependencies:
   intl: ^0.18.0
 
   flutter_fortune_wheel: ^1.2.0
+  confetti: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.3.2
   freezed: ^2.3.2
+  flutter_launcher_icons: ^0.11.0
+
 
 flutter:
   uses-material-design: true

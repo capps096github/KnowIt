@@ -16,6 +16,8 @@ export 'package:animated_text_kit/animated_text_kit.dart';
 
 export 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
+export 'package:confetti/confetti.dart';
+
 
 // ? ------------------------ App Based Exports ------------------------ //
 export 'app/exporter.dart';

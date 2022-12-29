@@ -16,13 +16,6 @@ class _GameWheelState extends ConsumerState<GameWheel> {
   // spiining wheel stream
   StreamController<int> spinController = StreamController<int>();
 
-  //
-  @override
-  void initState() {
-    // add listeners ti the spin controller
-
-    super.initState();
-  }
 
   @override
   void dispose() {

@@ -10,3 +10,9 @@ void main() {
     ),
   );
 }
+
+
+// launcher icon (done)
+// app name
+// play store
+// splash screen
